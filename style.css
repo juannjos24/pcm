@@ -22,7 +22,7 @@
    La carta se escribe sola bajo una luz cálida; al terminar cae el
    sello y la tarjeta gira en 3D para mostrar la invitación.
    Cada graduada tiene su tema (body[data-tema]) según su carrera:
-     mundo   → Negocios Internacionales: globo, avión de papel, azul/dorado
+     mundo   → Negocios Internacionales: globo, avión de papel, morado/rosa (del logo PCM)
      sonrisa  → Odontología: diente, destellos, rosa/menta
      servicio → Maestría en Administración Pública: edificio con columnas,
                 silueta de ciudad con ventanas que se encienden, verde/dorado
@@ -31,7 +31,7 @@
 
 /* ---------- Tema: acento por carrera ---------- */
 :root { --acc: var(--c2); --acc-ink: #6b3fa0; --acc-2: var(--gold-2); --acc-rgb: 146, 92, 204; }
-body[data-tema="mundo"]   { --acc: #47c0f0; --acc-ink: #1d7fb3; --acc-2: #e3b84f; --acc-rgb: 71, 192, 240; }
+body[data-tema="mundo"]   { --acc: #a56fe0; --acc-ink: #6b3fa0; --acc-2: #e0486d; --acc-rgb: 165, 111, 224; }   /* morado + rosa del logo */
 body[data-tema="sonrisa"] { --acc: #e0486d; --acc-ink: #c2335a; --acc-2: #8ee8d2; --acc-rgb: 224, 72, 109; }
 body[data-tema="servicio"] { --acc: #3ec98f; --acc-ink: #1f7a55; --acc-2: #e3b84f; --acc-rgb: 62, 201, 143; }
 body[data-tema="logro"]    { --acc: #e3b84f; --acc-ink: #a87f22; --acc-2: #925ccc; --acc-rgb: 227, 184, 79; }

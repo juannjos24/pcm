@@ -136,7 +136,7 @@ Con amor,`;
     const sig = document.createElement('span'); sig.className = g ? 'sig' : 'sig sig-many'; sig.textContent = firma;
     text.after(sig);
     stamp.classList.add('on'); vibrate([20, 40, 30]);
-    open.hidden = false;
+    if (!card.classList.contains('flip')) open.hidden = false;
     Confetti.rain(30);
   }
   async function type() {

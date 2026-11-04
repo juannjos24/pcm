@@ -19,7 +19,7 @@ con fecha, hora, lugar y versículo. No hay botón "Saltar": la carta se escribe
 
 | Graduado/a | Carrera | Tema | Acento | Versículo |
 |---|---|---|---|---|
-| Amanda Rivera de la O | Administración de Negocios Internacionales | `mundo`: globo con órbita, avión de papel que cruza la pantalla, marca de agua y sello con el globo | azul / dorado | Proverbios 16:3 |
+| Amanda Rivera de la O | Administración de Negocios Internacionales | `mundo`: globo con órbita, avión de papel que cruza la pantalla, marca de agua y sello con el globo | morado / rosa | Proverbios 16:3 |
 | Ana Elizabeth Pérez Chanona | Odontología | `sonrisa`: diente con brillo, destellos que titilan, marca de agua y sello con el diente | rosa / menta | Salmo 126:2-3 |
 | José Antonio Barrera Mendoza | *(sin confirmar: no se muestra)* | `logro`: birrete, destellos, marca de agua y sello con el birrete | dorado / morado | Jeremías 29:11 |
 | Caleb Josué Barrios González | *(sin confirmar: no se muestra)* | `logro` | dorado / morado | Jeremías 29:11 |
