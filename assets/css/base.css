@@ -1,0 +1,134 @@
+/* ============================================================
+   base.css — Paleta PCM, tipografías y componentes compartidos
+   Graduación 2026 · Programa de Gratitud · Ministerio del Campus Público
+   Paleta sacada del logo (degradado azul → morado → rosa → rojo)
+   ============================================================ */
+:root {
+  --ink: #0b0d1c;        /* fondo noche */
+  --ink-2: #161a33;
+  --ink-3: #232a4d;
+  --paper: #f8f5ee;      /* pergamino */
+  --paper-2: #efe7d6;
+  --paper-3: #d9ccae;
+  --paper-ink: #2a2418;
+  --paper-muted: #6f6552;
+  --c1: #47c0f0;  --c2: #925ccc;  --c3: #e0486d;  --c4: #cc1433;   /* paradas del logo */
+  --gold: #e3b84f;  --gold-2: #f6d987;  --gold-3: #a87f22;         /* borla del birrete */
+  --text: #ffffff;  --muted: #aeb3c9;
+  --grad: linear-gradient(135deg, var(--c1) 0%, var(--c2) 42%, var(--c3) 74%, var(--c4) 100%);
+  --grad-v: linear-gradient(180deg, var(--c1) 0%, var(--c2) 41%, var(--c3) 71%, var(--c4) 100%);
+
+  --font-display: 'Cormorant Garamond', 'Times New Roman', serif;   /* títulos elegantes */
+  --font-script: 'Great Vibes', 'Brush Script MT', cursive;         /* nombres de las graduadas */
+  --font-body: 'Montserrat', system-ui, sans-serif;
+
+  --ease-out: cubic-bezier(.2, .8, .2, 1);
+  --ease-back: cubic-bezier(.34, 1.56, .64, 1);
+  --radius: 18px;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; min-height: 100%; overflow-x: hidden; }
+body {
+  background: var(--ink); color: var(--text);
+  font-family: var(--font-body); line-height: 1.5;
+  -webkit-font-smoothing: antialiased; overflow-x: hidden;
+}
+body.paper { background: var(--paper); color: var(--paper-ink); }
+img, svg { max-width: 100%; display: block; }
+[hidden] { display: none !important; }
+button { font: inherit; cursor: pointer; }
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+
+/* ---------- Fondo: resplandor con los colores del logo ---------- */
+.glow {
+  position: fixed; inset: 0; z-index: 0; pointer-events: none;
+  background:
+    radial-gradient(60% 45% at 50% -5%, rgba(71,192,240,.28), transparent 70%),
+    radial-gradient(50% 40% at 85% 60%, rgba(146,92,204,.22), transparent 70%),
+    radial-gradient(45% 40% at 10% 85%, rgba(224,72,109,.18), transparent 70%);
+}
+.confetti { position: fixed; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 30; }
+
+/* ---------- Escenario ---------- */
+.stage {
+  position: relative; z-index: 1; min-height: 100svh;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;
+  padding-block: 32px 40px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  gap: 10px;
+}
+.logo { width: 84px; margin: 0 auto; filter: drop-shadow(0 8px 22px rgba(146,92,204,.45)); }
+.logo svg { width: 100%; height: auto; }
+.logo-sm { width: 64px; }
+.kicker {
+  margin: 0; font-size: .72rem; letter-spacing: .22em; text-transform: uppercase; color: var(--muted);
+}
+.paper .kicker { color: var(--paper-muted); }
+.title {
+  margin: 0; font-family: var(--font-display); font-weight: 500; line-height: 1.02;
+  font-size: clamp(2.4rem, 9vw, 4.2rem); text-wrap: balance;
+}
+.title .year {
+  background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; font-weight: 600;
+}
+.lead { margin: 0; max-width: 34ch; color: var(--muted); font-size: .95rem; }
+.paper .lead { color: var(--paper-muted); }
+.hint { margin: 6px 0 0; font-size: .82rem; color: var(--muted); animation: hint-pulse 2.4s ease-in-out infinite; }
+.paper .hint { color: var(--paper-muted); }
+.hint.is-hidden { visibility: hidden; }
+@keyframes hint-pulse { 0%, 100% { opacity: .55; } 50% { opacity: 1; } }
+
+/* ---------- Botones ---------- */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  padding: 12px 20px; border-radius: 999px; border: 0; text-decoration: none;
+  font-weight: 700; font-size: .9rem; color: #fff; background: var(--grad);
+  box-shadow: 0 10px 28px rgba(146,92,204,.35);
+  transition: transform .2s var(--ease-out), box-shadow .2s;
+}
+.btn:hover { transform: translateY(-2px); box-shadow: 0 14px 32px rgba(146,92,204,.45); }
+.btn-ghost { background: transparent; color: inherit; box-shadow: none; border: 1.5px solid currentColor; }
+.btn-ghost:hover { box-shadow: none; }
+
+/* ---------- Tarjeta final de invitación (compartida) ---------- */
+.reveal {
+  position: relative; z-index: 2; display: grid; place-items: center;
+  padding-block: 20px 48px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.invite {
+  width: min(100%, 440px); border-radius: var(--radius); padding: 30px 24px 26px; text-align: center;
+  background: var(--paper); color: var(--paper-ink);
+  box-shadow: 0 30px 80px rgba(0,0,0,.5), inset 0 0 0 1px rgba(0,0,0,.06);
+  position: relative; overflow: hidden;
+}
+.invite::before { content: ""; position: absolute; inset: 0 0 auto; height: 6px; background: var(--grad); }
+.invite .invite-logo { width: 70px; margin: 2px auto 10px; }
+.invite .kicker { color: var(--paper-muted); }
+.invite-title { margin: 4px 0 0; font-family: var(--font-display); font-weight: 600; font-size: 2.2rem; line-height: 1; }
+.invite-sub { margin: 2px 0 14px; font-family: var(--font-display); font-style: italic; font-size: 1.15rem; color: var(--paper-muted); }
+.grads { list-style: none; margin: 0; padding: 14px 0; display: grid; gap: 12px; border-block: 1px solid var(--paper-3); }
+.grads .g-name { display: block; font-family: var(--font-script); font-size: 2rem; line-height: 1.05; }
+.grads .g-career { display: block; font-size: .78rem; letter-spacing: .08em; text-transform: uppercase; color: var(--paper-muted); margin-top: 2px; }
+.family { margin: 16px 0 6px; font-family: var(--font-display); font-size: 1.3rem; font-weight: 600; }
+.verse { margin: 10px 0 16px; padding: 0 6px; }
+.verse p { margin: 0; font-family: var(--font-display); font-style: italic; font-size: 1.05rem; line-height: 1.4; }
+.verse cite { display: block; margin-top: 4px; font-style: normal; font-size: .72rem; letter-spacing: .18em; text-transform: uppercase; color: var(--paper-muted); }
+.when { margin: 0 0 18px; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.when div { min-width: 0; }
+.when dt { font-size: .62rem; letter-spacing: .18em; text-transform: uppercase; color: var(--paper-muted); }
+.when dd { margin: 2px 0 0; font-size: .85rem; font-weight: 600; line-height: 1.3; }
+.when dd strong { display: block; font-family: var(--font-display); font-size: 1.9rem; line-height: 1; font-weight: 600; }
+.invite .actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+.invite .actions .btn-ghost { color: var(--paper-ink); }
+.credit { margin: 14px 0 0; font-size: .62rem; letter-spacing: .14em; text-transform: uppercase; color: var(--paper-muted); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+}
+
+.btn:disabled { opacity: .35; pointer-events: none; box-shadow: none; }
